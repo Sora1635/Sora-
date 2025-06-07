@@ -10,7 +10,7 @@ async function showFreeOption() {
     }
 
     try {
-        const response = await fetch('https://your-replit-project.replit.app/api/subscribe', {
+        const response = await fetch('https://239642ad-9c8c-4e3e-9492-ab1cc5f8c96f-00-zuyrpq1neq7j.pike.replit.dev/api/subscribe', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, channel, subscribers: parseInt(subscribers), paid: false })
@@ -46,14 +46,14 @@ async function showPaidOption() {
     }
 
     try {
-        const response = await fetch('https://your-replit-project.replit.app/api/create-checkout', {
+        const response = await fetch('https://239642ad-9c8c-4e3e-9492-ab1cc5f8c96f-00-zuyrpq1neq7j.pike.replit.dev/api/create-checkout', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, channel, subscribers: parseInt(subscribers) })
         });
         const data = await response.json();
         if (response.ok) {
-            window.location.href = data.url; // Редирект на Stripe
+            window.location.href = data.url;
         } else {
             message.textContent = data.error || 'Ошибка. Попробуйте снова.';
         }
