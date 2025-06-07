@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Платформа взаимных подписок</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Накрутка подписчиков</h1>
+        <p>Бесплатно: взаимные подписки. Платно: накрутка без подписок!</p>
+    </header>
+    <main>
+        <section>
+            <h2>Подать заявку</h2>
+            <form id="subscribe-form">
+                <label for="username">Ваш Telegram (@username):</label>
+                <input type="text" id="username" name="username" required>
+                <label for="channel">Ваш канал (@channel):</label>
+                <input type="text" id="channel" name="channel" required>
+                <label for="subscribers">Сколько подписчиков?</label>
+                <select id="subscribers" name="subscribers">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="10">10</option>
+                </select>
+                <button type="button" onclick="showFreeOption()">Бесплатно</button>
+                <button type="button" onclick="showPaidOption()">Платно ($1/подписчик)</button>
+            </form>
+            <p id="form-message"></p>
+        </section>
+        <section id="channels-section" style="display: none;">
+            <h2>Подпишитесь на каналы</h2>
+            <p>Чтобы получить подписчиков, подпишитесь на эти каналы (включая @your_channel):</p>
+            <ul id="channel-list"></ul>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
