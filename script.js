@@ -10,7 +10,7 @@ async function showFreeOption() {
     }
 
     try {
-        const response = await fetch('https://239642ad-9c8c-4e3e-9492-ab1cc5f8c96f-00-zuyrpq1neq7j.pike.replit.dev/api/subscribe', {
+        const response = await fetch('https://239642ad-9c8c-4e3e-9492-ab1cc5f8c96f-00-zuyrpq1neq7j.pike.replit.dev/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, channel, subscribers: parseInt(subscribers), paid: false })
@@ -46,7 +46,7 @@ async function showPaidOption() {
     }
 
     try {
-        const response = await fetch('https://239642ad-9c8c-4e3e-9492-ab1cc5f8c96f-00-zuyrpq1neq7j.pike.replit.dev/api/create-checkout', {
+        const response = await fetch('https://239642ad-9c8c-4e3e-9492-ab1cc5f8c96f-00-zuyrpq1neq7j.pike.replit.dev/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, channel, subscribers: parseInt(subscribers) })
