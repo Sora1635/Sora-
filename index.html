@@ -3,39 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Платформа взаимных подписок</title>
+    <title>Сова - Накрутка подписчиков</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Накрутка подписчиков</h1>
-        <p>Бесплатно: взаимные подписки. Платно: накрутка без подписок!</p>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Sova Logo" width="40">
+                <span>Сова</span>
+            </div>
+            <ul>
+                <li><a href="index.html" class="active">Главная</a></li>
+                <li><a href="apply.html">Заказать</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </nav>
     </header>
     <main>
-        <section>
-            <h2>Подать заявку</h2>
-            <form id="subscribe-form">
-                <label for="username">Ваш Telegram (@username):</label>
-                <input type="text" id="username" name="username" required>
-                <label for="channel">Ваш канал (@channel):</label>
-                <input type="text" id="channel" name="channel" required>
-                <label for="subscribers">Сколько подписчиков?</label>
-                <select id="subscribers" name="subscribers">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="10">10</option>
-                </select>
-                <button type="button" onclick="showFreeOption()">Бесплатно</button>
-                <button type="button" onclick="showPaidOption()">Платно ($1/подписчик)</button>
-            </form>
-            <p id="form-message"></p>
+        <section class="hero">
+            <h1>Накрутка подписчиков в Telegram</h1>
+            <p>Быстро, надежно и просто! Бесплатно через взаимные подписки или платно за $1/подписчик.</p>
+            <a href="apply.html" class="button">Начать сейчас</a>
         </section>
-        <section id="channels-section" style="display: none;">
-            <h2>Подпишитесь на каналы</h2>
-            <p>Чтобы получить подписчиков, подпишитесь на эти каналы (включая @piar163):</p>
-            <ul id="channel-list"></ul>
+        <section class="features">
+            <div class="feature-card">
+                <i class="fas fa-user-plus"></i>
+                <h3>Бесплатная накрутка</h3>
+                <p>Подпишитесь на каналы и получите подписчиков.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-credit-card"></i>
+                <h3>Платная накрутка</h3>
+                <p>Мгновенное добавление подписчиков за $1 за каждого.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Надежность</h3>
+                <p>Гарантируем безопасность и конфиденциальность.</p>
+            </div>
         </section>
     </main>
+    <footer>
+        <p>&copy; 2025 Сова. Все права защищены.</p>
+        <p><a href="contacts.html">Свяжитесь с нами</a></p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
