@@ -1,9 +1,10 @@
-// Переключение темы
-document.querySelector('.theme-toggle').addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    const icon = document.querySelector('.theme-toggle i');
-    icon.classList.toggle('fa-moon');
-    icon.classList.toggle('fa-sun');
+// Управление боковым меню
+document.querySelector('.menu-toggle').addEventListener('click', () => {
+    document.querySelector('.sidebar').classList.add('open');
+});
+
+document.querySelector('.close-menu').addEventListener('click', () => {
+    document.querySelector('.sidebar').classList.remove('open');
 });
 
 async function showFreeOption() {
@@ -13,21 +14,19 @@ async function showFreeOption() {
     const message = document.getElementById('form-message');
 
     if (!username || !channel) {
-        message.textContent = 'Заполните все поля!';
+        message.textContent = 'Заполните поля!';
         return;
     }
 
     try {
-        console.log('Sending request to /api/subscribe with:', { username, channel, subscribers });
         const response = await fetch('https://ca7e0132-c0b4-4338-a5c6-c68338a91a6f-00-29axe4yldg87c.pike.replit.dev/api/subscribe', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, channel, subscribers: parseInt(subscribers), paid: false })
         });
         const data = await response.json();
-        console.log('Response:', data);
         if (response.ok) {
-            message.textContent = `Подпишитесь на ${subscribers} канала(ов) ниже!`;
+            message.textContent = `Подпишитесь на ${subscribers} канала(ов)!`;
             document.getElementById('channels-section').style.display = 'block';
             const list = document.getElementById('channel-list');
             list.innerHTML = '';
@@ -37,11 +36,10 @@ async function showFreeOption() {
                 list.appendChild(li);
             });
         } else {
-            message.textContent = data.error || 'Ошибка. Попробуйте снова.';
+            message.textContent = data.error || 'Ошибка.';
         }
     } catch (error) {
-        console.error('Fetch error:', error);
-        message.textContent = 'Ошибка соединения. Проверьте сервер.';
+        message.textContent = 'Ошибка сервера.';
     }
 }
 
@@ -52,26 +50,23 @@ async function showPaidOption() {
     const message = document.getElementById('form-message');
 
     if (!username || !channel) {
-        message.textContent = 'Заполните все поля!';
+        message.textContent = 'Заполните поля!';
         return;
     }
 
     try {
-        console.log('Sending request to /api/create-checkout with:', { username, channel, subscribers });
         const response = await fetch('https://ca7e0132-c0b4-4338-a5c6-c68338a91a6f-00-29axe4yldg87c.pike.replit.dev/api/create-checkout', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, channel, subscribers: parseInt(subscribers) })
         });
         const data = await response.json();
-        console.log('Response:', data);
         if (response.ok) {
             window.location.href = data.url;
         } else {
-            message.textContent = data.error || 'Ошибка. Попробуйте снова.';
+            message.textContent = data.error || 'Ошибка.';
         }
     } catch (error) {
-        console.error('Fetch error:', error);
-        message.textContent = 'Ошибка соединения. Проверьте сервер.';
+        message.textContent = 'Ошибка сервера.';
     }
 }
